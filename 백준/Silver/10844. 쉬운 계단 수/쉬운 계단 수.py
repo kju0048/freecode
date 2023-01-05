@@ -32,4 +32,5 @@ for i in range(1, n):
 
         
 print(sum(nL[n-1])%1000000000)
+
 >>>>>>> 96df4213db17be9234b309045ea54ef0749ac768:백준/Silver/10844. 쉬운 계단 수/쉬운 계단 수.py

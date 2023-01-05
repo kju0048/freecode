@@ -12,4 +12,5 @@ for i in range(1, n):
     for j in range(1, 9):
         nL[i][j] = nL[i-1][j-1] + nL[i-1][j+1]
 
+
 print(sum(nL[n-1])%1000000000)

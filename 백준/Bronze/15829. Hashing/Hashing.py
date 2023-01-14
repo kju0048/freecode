@@ -6,6 +6,6 @@ str1 = inp().strip()
 h = 0
 
 for i in range(l):
-    h += (ord(str1[i]) - 96) * (31 ** i) % 1234567891
+    h += (ord(str1[i]) - 96) * (31 ** i)
 
-print(h)
+print(h % 1234567891)

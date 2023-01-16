@@ -1,2 +1,0 @@
-# freecode
-Java + Python

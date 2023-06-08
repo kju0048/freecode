@@ -85,15 +85,15 @@ while(1):
     im = Image.open(data)
 
 
-    im.save('C:/Users/byu04/Pictures/test/received_image.png','PNG')
+    im.save('../pysev/received_image.png','PNG')
 
 
 
-    os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'C:/Users/byu04/Pictures/Server_Google_OCR/proven-country-388105-2b1fa1639dd9.json'
+    os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = '../pysev/proven-country-388105-2b1fa1639dd9.json'
 
 
 
-    image_path = r"C:/Users/byu04/Pictures/test/received_image.png"
+    image_path = r"../pysev/received_image.png"
 
 
 

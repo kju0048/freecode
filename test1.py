@@ -10,7 +10,6 @@ import os
 
 
 def send_text_array(sock, text_array):
-    # 텍스트 배열의 길이를 바이트로 변환하여 전송
     sock.send(str(text_array).encode("utf-8"))
     print('send : ', text_array)
 
@@ -26,7 +25,6 @@ def recvall(sock, count):
     return buf
 
 def calculate_expression(expression_list):
-    # 숫자와 연산자를 인식하여 계산 결과 도출
     result = None
     operator = None
     for char in expression_list:
@@ -48,29 +46,27 @@ def calculate_expression(expression_list):
     return result
 
 def recognize_text(image_path):
-    # 이미지 열기
     with open(image_path, 'rb') as image_file:
         content = image_file.read()
 
-    # 이미지 데이터를 Vision API에 전송
     client = vision.ImageAnnotatorClient()
     image = vision.Image(content=content)
     response = client.text_detection(image=image)
     texts = response.text_annotations
 
-    # 인식된 텍스트 추출
     if texts:
         return texts[0].description
     else:
         return None
 
 
-host = '' # 호스트 ip를 적어주세요
-port = 7777          # 포트번호를 임의로 설정해주세요
+host = '' 
+port = 7777 
 
 while(1):
-
+    print("meaning")
     s= socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     s.bind((host, port))
 
     s.listen(True)
@@ -85,15 +81,15 @@ while(1):
     im = Image.open(data)
 
 
-    im.save('../pysev/received_image.png','PNG')
+    im.save('/root/Desktop/sevc/received_image.png','PNG')
 
 
 
-    os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = '../pysev/proven-country-388105-2b1fa1639dd9.json'
+    os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = '/root/Desktop/sevc/proven-country-388105-2b1fa1639dd9.json'
 
 
 
-    image_path = r"../pysev/received_image.png"
+    image_path = r"/root/Desktop/sevc/received_image.png"
 
 
 
